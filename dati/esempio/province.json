@@ -1,0 +1,16 @@
+{
+  "limiti": { "lon": [-180, 180], "lat": [-60, 75] },
+  "province": [
+    { "id": "parigi", "nome": "Parigi", "lon": 2.35, "lat": 48.86, "proprietario": "FRA", "confina": ["rouen"], "terreno": "pianura", "sviluppo": 12,
+      "fonte": "Enciclopedia Treccani, voce «Parigi»", "certezza": "certo" },
+    { "id": "rouen", "nome": "Rouen", "lon": 1.10, "lat": 49.44, "proprietario": "FRA", "confina": ["parigi"], "terreno": "pianura", "sviluppo": 8,
+      "fonte": "Encyclopaedia Britannica, voce «Normandy»: unita al dominio regio francese nel 1204", "certezza": "certo" },
+    { "id": "bordeaux", "nome": "Bordeaux", "lon": -0.58, "lat": 44.84, "proprietario": "ENG", "confina": [], "terreno": "pianura", "sviluppo": 7,
+      "fonte": "Encyclopaedia Britannica, voce «Gascony»", "certezza": "semplificato",
+      "controverso": "De iure feudo del re d'Inghilterra come duca d'Aquitania, vassallo del re di Francia. Dal 1294 Bordeaux è occupata dai Francesi; torna agli Inglesi col trattato di Parigi del 1303. Nel gioco: proprietario Inghilterra (scelta da confermare con l'utente)." },
+    { "id": "londra", "nome": "Londra", "lon": -0.13, "lat": 51.51, "proprietario": "ENG", "confina": [], "terreno": "pianura", "sviluppo": 11,
+      "fonte": "Encyclopaedia Britannica, voce «London»", "certezza": "certo" },
+    { "id": "venezia", "nome": "Venezia", "lon": 12.33, "lat": 45.44, "proprietario": "VEN", "confina": [], "terreno": "pianura", "sviluppo": 12,
+      "fonte": "Enciclopedia Treccani, voce «Venezia»", "certezza": "certo" }
+  ]
+}
