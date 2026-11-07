@@ -446,6 +446,12 @@ function aiMonthly(n) {
   }
   if (n.pts >= 60) { const i = pick(own); if (n.pts >= devCost(i)) { n.pts -= devCost(i); P(i).dev++; } }
   if (n.gold > 120 && P(n.capital).fort < 2 && P(n.capital).ctrl === id) { n.gold -= fortCost(n.capital); P(n.capital).fort++; }
+  // a fine espansione l'oro non avrebbe più usi: sopra 200 l'IA lo trasforma in sviluppo (stesso prezzo che paga il giocatore)
+  for (let t = 0; t < 2 && n.gold > 200; t++) {
+    const mie = own.filter(i => P(i).ctrl === id); if (!mie.length) break;
+    const i = pick(mie); if (n.gold - devCost(i) < 100) break;
+    n.gold -= devCost(i); P(i).dev++;
+  }
   if (!n.colony && n.gold >= COSTO_COLONIA + 10) {
     const fr = [...new Set(own.flatMap(i => MP(i).adj))].filter(i => P(i).owner < 0 && !G.n.some(x => x.colony && x.colony.p === i));
     if (fr.length) { n.gold -= COSTO_COLONIA; n.colony = { p: pick(fr), prog: 0 }; }
@@ -459,7 +465,12 @@ function aiMonthly(n) {
     const side = sideOf(w, id); if (w[side][0] !== id) continue;
     const foe = w[other(side)][0], sc = scoreFor(w, id), age = G.day - w.start;
     if (sc >= 20) {
-      const dem = greedyDemand(w, side, Math.min(sc, 60)); if (!dem.length) continue; // al massimo il 60% per trattato
+      let dem = greedyDemand(w, side, Math.min(sc, 60)); // al massimo il 60% per trattato...
+      if (!dem.length) { // ...ma se nessuna provincia ci sta (per esempio l'ultima, che vale più del 60%) si chiede la più economica che il punteggio copre
+        const ok = occupiedBy(w, side).filter(i => provCost(w, i) <= sc).sort((x, y) => provCost(w, x) - provCost(w, y));
+        if (ok.length) dem = [ok[0]];
+      }
+      if (!dem.length) continue;
       if (foe === G.player) {
         if (G.day - w.lastOffer >= 180) { w.lastOffer = G.day; offerToPlayer(w, side, dem); }
       } else makePeace(w, side, dem);

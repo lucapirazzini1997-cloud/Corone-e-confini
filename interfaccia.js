@@ -273,6 +273,7 @@ function showProvince() {
   h += '</dl><div class="acts">';
   if (p.owner === pl && p.ctrl === pl) {
     h += btn('dev', `Sviluppa <small>${devCost(i)} punti</small>`, me.pts >= devCost(i));
+    h += btn('devg', `Sviluppa <small>${devCost(i)} oro</small>`, me.gold >= devCost(i));
     h += btn('fort', p.fort >= 3 ? 'Fortezza al massimo' : `Fortezza ${p.fort + 1} <small>${fortCost(i)} oro</small>`, p.fort < 3 && me.gold >= fortCost(i));
     const why = enemyArmiesAt(i, pl).length ? 'nemici in provincia' : me.mp < 1000 ? 'pochi uomini' : me.gold < COSTO_RECLUTA ? 'poco oro' : '';
     h += btn('rec', `Recluta 1000 uomini <small>${why || COSTO_RECLUTA + ' oro'}</small>`, !why);
@@ -389,7 +390,8 @@ sheet.addEventListener('click', e => {
   const [act, arg] = el.dataset.act.split(':'), x = arg !== undefined ? +arg : null, pl = G.player, me = NA(pl);
   switch (act) {
     case 'close': selProv = -1; selArmy = -1; dirty = true; closeSheet(); return;
-    case 'dev': if (me.pts >= devCost(selProv)) { me.pts -= devCost(selProv); P(selProv).dev++; dirty = mode === 'sviluppo'; } break;
+    case 'dev': if (me.pts >= devCost(selProv)) { me.pts -= devCost(selProv); P(selProv).dev++; if (mode === 'sviluppo') dirty = true; } break;
+    case 'devg': if (me.gold >= devCost(selProv)) { me.gold -= devCost(selProv); P(selProv).dev++; if (mode === 'sviluppo') dirty = true; } break;
     case 'fort': if (me.gold >= fortCost(selProv) && P(selProv).fort < 3) { me.gold -= fortCost(selProv); P(selProv).fort++; } break;
     case 'rec': if (recruit(pl, selProv)) note(`1000 uomini reclutati a ${MP(selProv).name}`, 'good'); break;
     case 'cap': if (me.pts >= 50) { me.pts -= 50; me.capital = selProv; note(`La capitale è ora ${MP(selProv).name}`); } break;
