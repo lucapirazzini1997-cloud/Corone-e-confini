@@ -1,6 +1,6 @@
 // Tiene in cache i file del gioco: dopo la prima apertura funziona anche senza rete.
-const CACHE = 'corone-v1';
-const FILES = ['./', './index.html', './gioco.js', './stile.css', './manifest.webmanifest', './icona.svg'];
+const CACHE = 'corone-v2';
+const FILES = ['./', './index.html', './motore.js', './interfaccia.js', './stile.css', './manifest.webmanifest', './icona.svg'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))); self.skipWaiting(); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))); self.clients.claim(); });
 self.addEventListener('fetch', e => {

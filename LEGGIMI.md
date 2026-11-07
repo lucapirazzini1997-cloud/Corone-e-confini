@@ -1,11 +1,10 @@
 # Corone e Confini
 
-Prototipo di gioco di grande strategia per telefono, originale (nomi, mappa e grafica non vengono da altri giochi). Separato dal progetto Pokémon Romagna: non tocca `build.py`.
-
+Prototipo di gioco di grande strategia per telefono, originale (nomi, mappa e grafica non vengono da altri giochi). 
 ## Provarlo
 
 ```sh
-cd corone && python3 -m http.server 8000
+python3 -m http.server 8000
 ```
 Apri `http://localhost:8000` sul telefono (stessa rete) o sul computer. Pubblicato su un hosting HTTPS (GitHub Pages, Netlify…) si installa come app: "Aggiungi a schermata Home". Dopo la prima apertura funziona anche offline (`sw.js`).
 
@@ -24,6 +23,7 @@ Apri `http://localhost:8000` sul telefono (stessa rete) o sul computer. Pubblica
 | File | Contenuto |
 |---|---|
 | `index.html` | pagina e interfaccia |
-| `gioco.js` | generazione della mappa, simulazione, IA, disegno, comandi |
+| `motore.js` | stato, regole, IA, generazione della mappa: gira anche in Node |
+| `interfaccia.js` | disegno della carta, tocchi, pannelli, salvataggio nel browser |
 | `stile.css` | stile |
 | `manifest.webmanifest`, `sw.js`, `icona.svg` | installazione come app (PWA) |
