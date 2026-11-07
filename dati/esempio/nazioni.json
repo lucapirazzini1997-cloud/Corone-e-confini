@@ -3,19 +3,52 @@
   "nota": "Esempio del formato: poche voci vere, non la base dati del gioco.",
   "nazioni": [
     {
-      "id": "FRA", "nome": "Regno di Francia", "colore": "#3b5fa8", "capitale": "parigi",
-      "sovrano": { "nome": "Filippo IV il Bello", "dal": 1285, "al": 1314, "fonte": "Enciclopedia Treccani, voce «Filippo IV il Bello»", "certezza": "certo" },
-      "fonte": "Enciclopedia Treccani, voce «Francia» (storia)", "certezza": "certo"
+      "id": "FRANCIA",
+      "nome": "Regno di Francia",
+      "colore": "#3b5fa8",
+      "capitale": "parigi",
+      "sovrano": {
+        "nome": "Filippo IV il Bello",
+        "titolo": "re",
+        "dal": 1285,
+        "al": 1314,
+        "fonte": "Enciclopedia Treccani, voce «Filippo IV il Bello»",
+        "certezza": "certo"
+      },
+      "fonte": "Enciclopedia Treccani, voce «Francia» (storia)",
+      "certezza": "certo"
     },
     {
-      "id": "ENG", "nome": "Regno d'Inghilterra", "colore": "#b23a3a", "capitale": "londra",
-      "sovrano": { "nome": "Edoardo I", "dal": 1272, "al": 1307, "fonte": "Encyclopaedia Britannica, voce «Edward I»", "certezza": "certo" },
-      "fonte": "Encyclopaedia Britannica, voce «United Kingdom: England 1154-1485»", "certezza": "certo"
+      "id": "INGHILTERRA",
+      "nome": "Regno d'Inghilterra",
+      "colore": "#b23a3a",
+      "capitale": "londra",
+      "sovrano": {
+        "nome": "Edoardo I",
+        "titolo": "re",
+        "dal": 1272,
+        "al": 1307,
+        "fonte": "Encyclopaedia Britannica, voce «Edward I»",
+        "certezza": "certo"
+      },
+      "fonte": "Encyclopaedia Britannica (storia dell'Inghilterra medievale)",
+      "certezza": "certo"
     },
     {
-      "id": "VEN", "nome": "Repubblica di Venezia", "colore": "#2f8f7f", "capitale": "venezia",
-      "sovrano": { "nome": "Pietro Gradenigo (doge)", "dal": 1289, "al": 1311, "fonte": "Dizionario Biografico degli Italiani, voce «Gradenigo, Pietro»", "certezza": "certo" },
-      "fonte": "Enciclopedia Treccani, voce «Venezia» (storia)", "certezza": "certo"
+      "id": "VENEZIA",
+      "nome": "Repubblica di Venezia",
+      "colore": "#2f8f7f",
+      "capitale": "venezia",
+      "sovrano": {
+        "nome": "Pietro Gradenigo",
+        "titolo": "doge",
+        "dal": 1289,
+        "al": 1311,
+        "fonte": "Dizionario Biografico degli Italiani, voce «Gradenigo, Pietro»",
+        "certezza": "certo"
+      },
+      "fonte": "Enciclopedia Treccani, voce «Venezia» (storia)",
+      "certezza": "certo"
     }
   ]
 }

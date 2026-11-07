@@ -15,24 +15,26 @@ Ogni insieme di dati è una cartella in `dati/` con due file. Il modello è `dat
 `nazioni.json`
 ```json
 { "anno": 1300, "nazioni": [
-  { "id": "FRA", "nome": "Regno di Francia", "colore": "#3b5fa8", "capitale": "parigi",
-    "sovrano": { "nome": "Filippo IV il Bello", "dal": 1285, "al": 1314, "fonte": "…", "certezza": "certo" },
+  { "id": "FRANCIA", "nome": "Regno di Francia", "colore": "#3b5fa8", "capitale": "parigi",
+    "sovrano": { "nome": "Filippo IV il Bello", "titolo": "re", "dal": 1285, "al": 1314, "fonte": "…", "certezza": "certo" },
     "fonte": "…", "certezza": "certo" } ] }
 ```
 
 `province.json`
 ```json
 { "limiti": { "lon": [-180, 180], "lat": [-60, 75] }, "province": [
-  { "id": "parigi", "nome": "Parigi", "lon": 2.35, "lat": 48.86, "proprietario": "FRA",
+  { "id": "parigi", "nome": "Parigi", "lon": 2.35, "lat": 48.86, "proprietario": "FRANCIA",
     "confina": ["rouen"], "terreno": "pianura", "sviluppo": 12, "fonte": "…", "certezza": "certo" } ] }
 ```
 
 Regole, controllate da `strumenti/valida_dati.js` (e dall'hook dopo ogni modifica):
-- `id` brevi e stabili: nazioni in tre lettere maiuscole inventate da noi (non copiarle da altri giochi), province in minuscolo senza spazi.
+- `id` stabili. Nazioni: nome italiano in maiuscolo (`FRANCIA`, `VENEZIA`, `ORDA_DORO`). **Mai sigle di tre lettere**: coinciderebbero con quelle di altri giochi. Province: minuscolo senza spazi (`parigi`). I due insiemi sono separati, quindi `VENEZIA` e `venezia` possono convivere.
+- Il sovrano ha `nome` e `titolo` separati (`"nome": "Pietro Gradenigo", "titolo": "doge"`).
 - Una provincia senza padrone ha `"proprietario": null, "libera": true`.
 - `confina` deve essere reciproco.
 - Ogni nazione, sovrano e provincia ha `fonte` e `certezza`.
-- `terreno` è uno tra `pianura`, `foresta`, `colline`, `montagna` (gli stessi del motore). `sviluppo` va da 1 a 20 ed è una stima di gioco: dichiara `semplificato` se non hai un dato su popolazione o ricchezza.
+- `terreno` è uno tra `pianura`, `foresta`, `colline`, `montagna` (gli stessi del motore). `sviluppo` va da 1 a 20.
+- **Di cosa parla `certezza`.** In una provincia riguarda solo l'esistenza e il `proprietario` nell'anno di partenza. `sviluppo`, `terreno` e `confina` sono sempre scelte di gioco, tracciate o stimate da noi: non hanno certezza storica e non abbassano quella della voce.
 - Campo facoltativo `controverso`: testo che spiega il caso (vedi sotto).
 - I nomi nel gioco sono in italiano quando esiste una forma italiana d'uso (Parigi, Londra, Aquisgrana); altrimenti la forma più comune.
 
