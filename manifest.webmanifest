@@ -1,0 +1,15 @@
+{
+  "name": "Corone e Confini",
+  "short_name": "Corone",
+  "description": "Gioco di grande strategia per telefono: regni, guerre e trattati su un continente generato a ogni partita.",
+  "lang": "it",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#12171d",
+  "theme_color": "#12171d",
+  "icons": [
+    { "src": "icona.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
