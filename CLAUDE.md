@@ -31,8 +31,11 @@ La casualità del gioco dipende dal seme (`G.rs`): stesso seme, stessa partita. 
 ## Dati storici
 Prima di scrivere o correggere dati storici segui la skill `dati-storici`: formato, fonti, livelli di certezza (`certo`, `probabile`, `semplificato`), anacronismi da evitare, licenze. Ogni voce ha `fonte` e `certezza`. Per rileggerli usa il subagente `revisore-storico`; per i ritocchi numerici il subagente `bilanciatore`.
 
+## Decisioni prese
+1. **IA: solo avversari gestiti dal computer.** Niente modelli linguistici per ora: il gioco deve funzionare offline e senza chiavi. Un modello linguistico potrà arrivare dopo, come opzione facoltativa con un server intermedio, mai come requisito.
+3. **Confini del 1300: dati nostri.** Coste da Natural Earth (pubblico dominio, via il pacchetto npm `world-atlas`); province costruite attorno a città reali; proprietari assegnati con fonti enciclopediche secondo la skill `dati-storici`. I confini sono un'approssimazione dichiarata (`semplificato`). *historical-basemaps* (GPL-3.0) **non si usa**, nemmeno come base da ricalcare: lascerebbe la licenza aperta.
+
 ## Decisioni ancora aperte (non prenderle senza l'utente)
-1. **"Giocabile tramite IA"**: solo avversari gestiti dal computer, o anche un modello linguistico per diplomazia ed eventi? Il secondo richiede un server intermedio che custodisca la chiave e non funziona senza rete.
-2. **Disegno della mappa mondiale** (600-1000 province): canvas a quadretti come ora, poligoni su canvas o WebGL.
-3. **Fonte dei confini del 1300.** *historical-basemaps* ha `world_1300.geojson` ma è GPL-3.0: vedi la skill `dati-storici`.
-4. **Epoche**: quante e cosa cambia in ciascuna.
+2. **Disegno della mappa mondiale** (600-1000 province): proposta di partenza, poligoni su canvas ridisegnati solo quando la carta cambia; WebGL solo se le misure su un telefono reale lo richiedono.
+4. **Epoche**: proposta di 6 (Tardo Medioevo 1300-1450, Scoperte 1450-1600, Assolutismo 1600-1750, Rivoluzioni 1750-1850, Industria e imperi 1850-1914, Contemporanea dal 1914), da realizzare prima le prime due.
+5. **Contenere le valanghe di conquiste** (per esempio coalizioni contro chi si espande troppo): dopo la correzione dell'oro, 1 partita su 20 supera il 50% delle province in 30 anni.

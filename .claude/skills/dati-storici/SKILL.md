@@ -93,4 +93,4 @@ Regola generale: prima di usare uno stato, un titolo o un sovrano, controlla che
   - Se il gioco include confini presi o ricavati da quei file, i dati ricavati sono GPL-3.0. La strada sicura è rilasciare l'intero gioco con licenza GPL-3.0: codice pubblico, chiunque può copiarlo e modificarlo.
   - Va bene per un gioco gratuito e per la pubblicazione sul web o sul Play Store. Su App Store di Apple la compatibilità con la GPL è storicamente discussa.
   - Se invece si vuole un gioco chiuso o a pagamento, quei file si possono usare al massimo come confronto, non come base da cui ricavare i confini.
-  - **La scelta spetta all'utente** (decisione aperta 3 in `CLAUDE.md`): non importare quei dati finché non ha deciso.
+  - **Decisione presa (novembre 2026): non si usa.** Il progetto costruisce i propri confini; vedi `CLAUDE.md`, decisione 3. Non scaricare né ricalcare quei file.
