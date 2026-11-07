@@ -1,0 +1,3 @@
+# file di lavoro del server MCP Playwright
+.playwright-mcp/
+node_modules/
